@@ -1,0 +1,42 @@
+    private static void sortTwoSortedArrays(int[] nums1, int m, int[] nums2, int n){
+        int intialGap = (int)Math.ceil(((double) m+(double) n)/2);
+//        System.out.println(intialGap);
+        while (intialGap >= 1) {
+            for (int i=0;i<=(m+n-2-intialGap+1); i++) {
+                int swap1 = i;
+                int swap2 = i+intialGap;
+                if (swap1 <= m-1 && swap2 <= m-1) {
+                    if (nums1[swap1] > nums1[swap2]) {
+                        int temp = nums1[swap1];
+                        nums1[swap1] = nums1[swap2];
+                        nums1[swap2] = temp;
+                    }
+                    continue;
+                }
+                if (swap1 <= m-1 && swap2 > m-1) {
+                    if (nums1[swap1] > nums2[swap2-((int)m)]) {
+                        int temp = nums1[swap1];
+                        nums1[swap1] = nums2[swap2-((int)m)];
+                        nums2[swap2-((int)m)] = temp;
+                    }
+                    continue;
+                }
+                if (swap1 > m-1 && swap2 > m-1) {
+                    if (nums2[swap1-((int)m)] > nums2[swap2-((int)m)]) {
+                        int temp = nums2[swap1-((int)m)];
+                        nums2[swap1-((int)m)] = nums2[swap2-((int)m)];
+                        nums2[swap2-((int)m)] = temp;
+                    }
+                    continue;
+                }
+            }
+            intialGap = intialGap/2;
+        }
+
+        for (int k=0;k<nums1.length;k++) {
+            System.out.println(nums1[k]);
+        }
+        for (int k=0;k<nums2.length;k++) {
+            System.out.println(nums2[k]);
+        }
+    }
