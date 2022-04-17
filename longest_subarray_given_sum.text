@@ -1,0 +1,27 @@
+    public static int subarraySum(int[] nums, int k) {
+
+        Map<Integer, Integer> sumMap = new HashMap<>();
+        sumMap.put(0, 0);
+
+        int currSum = 0;
+        int maxLen = 0;
+        for (int i = 0; i < nums.length; i++) {
+            currSum = currSum + nums[i];
+
+            if (currSum == k) {
+                maxLen = i + 1;
+            }
+
+            if (!sumMap.containsKey(currSum)) {
+                sumMap.put(currSum, i + 1);
+            }
+
+            if (sumMap.containsKey(currSum - k)) {
+                maxLen = Math.max(maxLen, i + 1 - sumMap.get(currSum - k));
+            }
+
+        }
+
+        return maxLen;
+
+    }
