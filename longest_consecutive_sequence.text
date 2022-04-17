@@ -1,0 +1,22 @@
+public static int longestConsecutive(int[] nums) {
+    HashSet<Integer> set = new HashSet<>(); // best for search operation, contains only unique values, doesn't maintain insertion order.
+    Arrays.stream(nums).sequential().forEach((set::add));
+
+    int maxLength = 0;
+    int currLength;
+    for (Integer s : set) {
+        if (set.contains(s - 1)) {
+            continue;
+        } else {
+            currLength = 0;
+            int num = s;
+            while (set.contains(num)) {
+                currLength++;
+                num++;
+            }
+            maxLength = Math.max(currLength, maxLength);
+        }
+    }
+
+    return maxLength;
+}
