@@ -1,3 +1,5 @@
+// given an array, find longest consecutive number in array e.g.(4,5,6,7,8 OR 23,24,25,26,27)
+
 public static int longestConsecutive(int[] nums) {
     HashSet<Integer> set = new HashSet<>(); // best for search operation, contains only unique values, doesn't maintain insertion order.
     Arrays.stream(nums).sequential().forEach((set::add));

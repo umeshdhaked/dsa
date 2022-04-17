@@ -1,3 +1,5 @@
+    // find the longest subarray in an array which can sum up to given nukber K.
+    
     public static int subarraySum(int[] nums, int k) {
 
         Map<Integer, Integer> sumMap = new HashMap<>();

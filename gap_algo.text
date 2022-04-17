@@ -1,6 +1,7 @@
+ // so two sorted array without taking extra space (GAP Algo)
+ 
     private static void sortTwoSortedArrays(int[] nums1, int m, int[] nums2, int n){
         int intialGap = (int)Math.ceil(((double) m+(double) n)/2);
-//        System.out.println(intialGap);
         while (intialGap >= 1) {
             for (int i=0;i<=(m+n-2-intialGap+1); i++) {
                 int swap1 = i;
