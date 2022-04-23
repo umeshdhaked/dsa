@@ -1,0 +1,71 @@
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) { // merge two sorted array...
+        int vertices = 7;
+        int[][] edges = new int[][]{{6, 4}, {6, 2}, {5, 3}, {5, 4}, {3, 0}, {3, 1}, {3, 2}, {4, 1}};
+
+        List<Integer> ans = TopologicalSort.sort(vertices, edges);
+        if (ans != null) {
+            ans.forEach(System.out::println);
+        } else {
+            System.out.println("null");
+        }
+
+    }
+
+}
+
+class TopologicalSort {
+    public static List<Integer> sort(int v, int[][] edges) {
+        List<Integer> topologicalSorted = new ArrayList<>();
+
+        int[] countParent = new int[v];
+        for (int[] edge : edges) {
+            int child = edge[1];
+            countParent[child]++;
+        }
+
+        HashMap<Integer, List<Integer>> adj = new HashMap<>();
+        for (int[] edge : edges) { // adjList created....
+            int parent = edge[0];
+            int child = edge[1];
+
+            if (!adj.containsKey(parent)) {
+                ArrayList<Integer> childList = new ArrayList<>();
+                childList.add(child);
+                adj.put(parent, childList);
+                continue;
+            }
+
+            adj.get(parent).add(child);
+        }
+
+        Queue<Integer> sources = new ArrayDeque<>();
+        for (int i = 0; i < v; i++) {
+            if (countParent[i] == 0) sources.add(i);
+        }
+
+        while (!sources.isEmpty()) {
+            int source = sources.poll();
+            List<Integer> childsOfSource = adj.get(source);
+
+            if (childsOfSource != null) {
+                for (int chld : childsOfSource) {
+                    countParent[chld]--;
+                    if (countParent[chld] == 0) {
+                        sources.add(chld);
+                    }
+                }
+            }
+
+            topologicalSorted.add(source);
+        }
+
+        if (topologicalSorted.size() != v) return null;
+
+
+        return topologicalSorted;
+    }
+}
