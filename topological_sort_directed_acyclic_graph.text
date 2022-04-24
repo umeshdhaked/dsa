@@ -8,6 +8,7 @@ public class Main {
 
         List<Integer> ans = TopologicalSort.sort(vertices, edges);
         if (ans != null) {
+            System.out.println("\ntopological sorted");
             ans.forEach(System.out::println);
         } else {
             System.out.println("null");
@@ -18,6 +19,7 @@ public class Main {
 }
 
 class TopologicalSort {
+
     public static List<Integer> sort(int v, int[][] edges) {
         List<Integer> topologicalSorted = new ArrayList<>();
 
@@ -42,9 +44,26 @@ class TopologicalSort {
             adj.get(parent).add(child);
         }
 
+//        Vector<Integer> ansDFS = new Vector<>();
+//        Vector<Integer> ansBFS = new Vector<>();
+//        for (int k = v - 1; k >= 0; k--) {
+////            System.out.println("printfromStartingNode-" + k);
+//            printDFS(adj, k, ansDFS);
+//            printBFS(adj, k, ansBFS);
+//        }
+//        System.out.println("print graph traversal DFS");
+//        ansDFS.forEach((o) -> {
+//            System.out.print(o + ",");
+//        });
+//        System.out.println("\nprint graph traversal BFS");
+//        ansBFS.forEach((o) -> {
+//            System.out.print(o + ",");
+//        });
+
         Queue<Integer> sources = new ArrayDeque<>();
         for (int i = 0; i < v; i++) {
-            if (countParent[i] == 0) sources.add(i);
+            if (countParent[i] == 0)
+                sources.add(i);
         }
 
         while (!sources.isEmpty()) {
@@ -68,4 +87,60 @@ class TopologicalSort {
 
         return topologicalSorted;
     }
+
+    static boolean[] visitedDFS = new boolean[7];
+
+    private static void printDFS(HashMap<Integer, List<Integer>> adj, Integer currNode, Vector<Integer> ans) {
+
+        if (!visitedDFS[currNode]) {
+            /*System.out.println(currNode);*/
+            ans.add(currNode);
+
+            visitedDFS[currNode] = true;
+
+            List<Integer> adjNodes = adj.get(currNode);
+            if (adjNodes == null) {
+                return;
+            }
+            for (int adjN : adjNodes) {
+                if (!visitedDFS[adjN]) {
+                    printDFS(adj, adjN, ans);
+                }
+            }
+        }
+    }
+
+    static boolean[] visitedBFS = new boolean[7];
+
+    private static void printBFS(HashMap<Integer, List<Integer>> adj, Integer start, Vector<Integer> ans) {
+
+        if (!visitedBFS[start]) {
+            Queue<Integer> queue = new ArrayDeque<>();
+            queue.add(start);
+
+            while (!queue.isEmpty()) {
+                int q = queue.poll();
+                if (!visitedBFS[q]) {
+                    ans.add(q);
+//                    System.out.println(q);
+                    visitedBFS[q] = true;
+                    List<Integer> adjNodes = adj.get(q);
+                    if (adjNodes == null) {
+                        continue;
+                    }
+                    for (int adjNode : adjNodes) {
+                        if (!visitedBFS[adjNode]) {
+                            queue.add(adjNode);
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+
 }
+
+
+
