@@ -1,0 +1,89 @@
+class Solution {
+    //Function to find unit area of the largest region of 1s.
+    public int findMaxArea(int[][] grid) {
+        int row = grid.length;
+        int column = grid[0].length;
+
+        boolean[][] visited = new boolean[row][column];
+        int maxSize = 0;
+
+        for (int a = 0; a < row; a++) {
+            for (int b = 0; b < column; b++) {
+                if (!visited[a][b] && grid[a][b] == 1) {
+                    visited[a][b] = true;
+
+                    Queue<Pair> queue = new ArrayDeque<>();
+                    queue.add(new Pair(a, b));
+                    int currSum = 0;
+                    while (!queue.isEmpty()) {
+                        currSum++;
+
+                        Pair<Integer, Integer> p = queue.poll();
+                        int i = p.getKey();
+                        int j = p.getValue();
+
+                        // horizontal and vertical check
+                        if (i - 1 >= 0 && !visited[i - 1][j] && grid[i - 1][j] == 1) {
+                            queue.add(new Pair(i - 1, j));
+                            visited[i - 1][j] = true;
+                        }
+                        if (i + 1 < row && !visited[i + 1][j] && grid[i + 1][j] == 1) {
+                            queue.add(new Pair(i + 1, j));
+                            visited[i + 1][j] = true;
+                        }
+                        if (j - 1 >= 0 && !visited[i][j - 1] && grid[i][j - 1] == 1) {
+                            queue.add(new Pair(i, j - 1));
+                            visited[i][j - 1] = true;
+                        }
+                        if (j + 1 < column && !visited[i][j + 1] && grid[i][j + 1] == 1) {
+                            queue.add(new Pair(i, j + 1));
+                            visited[i][j + 1] = true;
+                        }
+
+                        // diagonal checks
+                        if (i - 1 >= 0 && j - 1 >= 0 && !visited[i - 1][j - 1] && grid[i - 1][j - 1] == 1) {
+                            queue.add(new Pair(i - 1, j - 1));
+                            visited[i - 1][j - 1] = true;
+                        }
+                        if (i + 1 < row && j + 1 < column && !visited[i + 1][j + 1] && grid[i + 1][j + 1] == 1) {
+                            queue.add(new Pair(i + 1, j + 1));
+                            visited[i + 1][j + 1] = true;
+                        }
+                        if (i - 1 >= 0 && j + 1 < column && !visited[i - 1][j + 1] && grid[i - 1][j + 1] == 1) {
+                            queue.add(new Pair(i - 1, j + 1));
+                            visited[i - 1][j + 1] = true;
+                        }
+                        if (i + 1 < row && j - 1 >= 0 && !visited[i + 1][j - 1] && grid[i + 1][j - 1] == 1) {
+                            queue.add(new Pair(i + 1, j - 1));
+                            visited[i + 1][j - 1] = true;
+                        }
+
+
+                    }
+
+                    maxSize = Math.max(maxSize, currSum);
+                }
+
+            }
+        }
+        return maxSize;
+    }
+
+    class Pair<K, V> {
+        K key;
+        V value;
+
+        Pair(K key, V val) {
+            this.key = key;
+            this.value = val;
+        }
+
+        public K getKey() {
+            return this.key;
+        }
+
+        public V getValue() {
+            return this.value;
+        }
+    }
+}
