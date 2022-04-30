@@ -1,0 +1,55 @@
+class Solution 
+{ 
+    //Function to return max value that can be put in knapsack of capacity W.
+    static int knapSack(int W, int wt[], int val[], int n) 
+    { 
+        // int[][] dp = new int[n+1][W + 1];
+        // for (int i = 0; i < dp.length; i++) {
+        //     Arrays.fill(dp[i], -1);
+        // }
+        // return knapSackDP(W,wt,val,n-1,dp);
+
+
+        int[] prev = new int[W+1];
+        for (int i = wt[0]; i <= W; i++) {
+                prev[i] = val[0];
+        }
+
+        for (int i = 1; i < n; i++) {
+            for (int j = W; j >= 0; j--) {
+                int notTake = prev[j];
+                int take = Integer.MIN_VALUE;
+                if (j >= wt[i]) {
+                    take = val[i] + prev[j-wt[i]];
+                }
+                prev[j] = Math.max(take, notTake);
+            }
+        }
+
+        return prev[W];
+    }
+    
+    static int knapSackDP(int W, int wt[], int val[], int n, int[][] dp) {
+       if (n==0) {
+            if (W >= wt[0]) {
+                dp[0][W] = val[0];
+                return dp[0][W];
+            }
+            return 0;
+        }
+         
+         if (dp[n][W] != -1) {
+             return dp[n][W];
+         }
+         int notTake = knapSackDP(W,wt,val,n-1,dp);
+         int take = Integer.MIN_VALUE;
+         if (W >= wt[n]) {
+             take = val[n] + knapSackDP(W-wt[n],wt,val,n-1,dp);
+         }
+         
+         dp[n][W] = Math.max(take,notTake);
+         
+         return dp[n][W];
+    }
+    
+}
