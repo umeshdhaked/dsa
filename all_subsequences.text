@@ -1,0 +1,73 @@
+// method uses here is 
+// 1. all consecutive subsequences.
+// 2. then all permutations of all tose subsequences.
+
+
+import java.util.*;
+
+public class Main {
+
+
+    public static void main(String[] args) {
+        String s = "abc";
+
+        Solution solution = new Solution();
+        solution.AllSubSequences(s, "");
+
+        solution.subSeq.forEach((abc) -> {
+            if (!abc.equals("")) {
+                System.out.println("\n\n-- all permutation of '" + abc + "' --");
+                solution.PrintAllPermutations(abc, 0, abc.length() - 1);
+            }
+        });
+
+
+    }
+
+}
+
+class Solution {
+    List<String> subSeq = new ArrayList<>();
+
+    public void AllSubSequences(String s, String s1) { // print all size of all combination but order is maintained (e.g. abc -> a,b,c,ab,bc,ac,abc)
+
+        if (s.length() == 0) {
+            subSeq.add(s1);
+            return;
+        }
+
+        AllSubSequences(s.substring(1), (s1 + s.charAt(0)));
+        AllSubSequences(s.substring(1), s1);
+
+    }
+
+
+    public void PrintAllPermutations(String s, int m, int n) {  // (e.g. ab -> ab,ba)
+
+        if (m == n) {
+            System.out.print(s + ", ");
+            return;
+        }
+
+        for (int idx = m; idx <= n; idx++) {
+
+            SwapI swapI = (str, i, j) -> {
+                char temp;
+                char[] charArray = str.toCharArray();
+                temp = charArray[i];
+                charArray[i] = charArray[j];
+                charArray[j] = temp;
+                return String.valueOf(charArray);
+            };
+
+            s = swapI.swap(s, m, idx);
+            PrintAllPermutations(s, m + 1, n);
+            s = swapI.swap(s, m, idx);
+        }
+    }
+
+}
+
+interface SwapI {
+    String swap(String s, int i, int j);
+}
