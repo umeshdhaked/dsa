@@ -3,7 +3,7 @@ package commons;
 import java.util.Arrays;
 
 public class DistinctSubSequences {
-        int distinctSubseq(String s) {
+    int distinctSubseq(String s) {
         
         int n = s.length();
         int mod = 1_000_000_007;

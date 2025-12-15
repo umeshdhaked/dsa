@@ -17,3 +17,18 @@
 -> Longest increasing subsequence.
 
 
+
+-> Binary Tree Paths, Node Find, Node Distances, Maximum, Minimum.
+
+
+-> Solve more of Backtracking, Sets.
+-> Solve more Recurssions.
+
+
+
+-> Solve more of PrefixSUM
+-> Solve more of Heap, Priority Queue
+
+
+-> Longest Balanced Substring I
+
