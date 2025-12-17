@@ -1,4 +1,4 @@
-import commons.TreeNode;
+import pojo.TreeNode;
 
 class Solution {
     public int minDiffInBST(TreeNode root) {

@@ -1,6 +1,6 @@
 package questions;
 
-import commons.Node;
+import pojo.Node;
 
 public class FindDepthOfNodeBT {
 

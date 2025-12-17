@@ -1,4 +1,4 @@
-package commons;
+package pojo;
 
 public class Node {
         public int data;

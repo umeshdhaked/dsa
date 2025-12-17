@@ -6,7 +6,8 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
-import commons.TreeNode;;
+
+import pojo.TreeNode;;
 
 public class BurningTree {
 
