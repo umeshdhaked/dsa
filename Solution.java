@@ -4,36 +4,4 @@ import java.util.Map;
 import pojo.TreeNode;
 
 class Solution {
-    public TreeNode buildTree(int[] preorder, int[] inorder) {
-
-        Map<Integer,Integer> mp = new HashMap<>();
-        for (int i =0;i<inorder.length;i++){
-            mp.put(inorder[i], i);
-        }
-
-        int n = inorder.length;
-
-        TreeNode ans = buildTreeHelper(preorder, 0, n, mp, 0, n);
-
-        return ans;
-    }
-
-    public TreeNode buildTreeHelper(int[] preorder, int start1, int end1,  Map<Integer,Integer> inorder, int start2, int end2) {
-
-        if (start1 > end1 && start2 > end2) {
-            return null;
-        }
-
-        TreeNode root = new TreeNode(preorder[start1]);
-        int inOrderIndex = inorder.get(preorder[start1]);
-        root.left = buildTreeHelper(preorder, start1+1, start1+ (inOrderIndex-start2), inorder, start2, inOrderIndex-1);
-        root.right = buildTreeHelper(preorder, start1 + (inOrderIndex-start2) + 1, end1, inorder, inOrderIndex+1, end2);
-
-
-        return root;
-
-    }
-
-
-
 }
