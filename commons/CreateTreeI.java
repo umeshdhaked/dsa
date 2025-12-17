@@ -19,8 +19,9 @@ public class CreateTreeI {
         if (root == null) {
             return;
         }
-        System.out.println(root.val);
+        
         inorder(root.left);
+        System.out.print(root.val+",");
         inorder(root.right);
     }
 

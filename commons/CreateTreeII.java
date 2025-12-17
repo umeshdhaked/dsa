@@ -3,7 +3,24 @@ import java.util.Map;
 
 import pojo.TreeNode;
 
-class Solution {
+public class CreateTreeII {
+
+
+    public static void main(String[] args) { 
+        System.out.println("Starting Programme....");
+
+        System.out.println("");
+
+
+        int[] arr1 = new int[]{10,20,40,80,50,30,60,70};
+        int[] arr2 = new int[]{80,40,20,50,10,60,30,70};
+
+        TreeNode root = new CreateTreeII().buildTree(arr1, arr2);
+
+        new CreateTreeII().inorder(root);
+    }
+
+
     public TreeNode buildTree(int[] preorder, int[] inorder) {
 
         Map<Integer,Integer> mp = new HashMap<>();
@@ -13,7 +30,7 @@ class Solution {
 
         int n = inorder.length;
 
-        TreeNode ans = buildTreeHelper(preorder, 0, n, mp, 0, n);
+        TreeNode ans = buildTreeHelper(preorder, 0, n-1, mp, 0, n-1);
 
         return ans;
     }
@@ -25,7 +42,12 @@ class Solution {
         }
 
         TreeNode root = new TreeNode(preorder[start1]);
+
+
         int inOrderIndex = inorder.get(preorder[start1]);
+        
+
+
         root.left = buildTreeHelper(preorder, start1+1, start1+ (inOrderIndex-start2), inorder, start2, inOrderIndex-1);
         root.right = buildTreeHelper(preorder, start1 + (inOrderIndex-start2) + 1, end1, inorder, inOrderIndex+1, end2);
 
@@ -35,5 +57,16 @@ class Solution {
     }
 
 
+
+
+    private static void inorder(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        
+        inorder(root.left);
+        System.out.println(root.val);
+        inorder(root.right);
+    }
 
 }
