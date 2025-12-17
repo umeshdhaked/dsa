@@ -1,19 +1,21 @@
-package commons;
+
+
+import pojo.TreeNode;
 
 public class MaxLeafDistance {
 
     public static void main(String[] args) {
         MaxLeafDistance bt = new MaxLeafDistance();
 
-        TreeNode n3 = bt.new TreeNode(3);
-        TreeNode n5 = bt.new TreeNode(5);
-        TreeNode n1 = bt.new TreeNode(1);
-        TreeNode n6 = bt.new TreeNode(6);
-        TreeNode n2 = bt.new TreeNode(2);
-        TreeNode n7 = bt.new TreeNode(7);
-        TreeNode n4 = bt.new TreeNode(4);
-        TreeNode n0 = bt.new TreeNode(0);
-        TreeNode n8 = bt.new TreeNode(8);
+        TreeNode n3 = new TreeNode(3);
+        TreeNode n5 = new TreeNode(5);
+        TreeNode n1 = new TreeNode(1);
+        TreeNode n6 = new TreeNode(6);
+        TreeNode n2 = new TreeNode(2);
+        TreeNode n7 = new TreeNode(7);
+        TreeNode n4 = new TreeNode(4);
+        TreeNode n0 = new TreeNode(0);
+        TreeNode n8 = new TreeNode(8);
 
         n3.left = n5;
         n3.right = n1;
@@ -37,48 +39,28 @@ public class MaxLeafDistance {
 
 
 
-        int dist = bt.maxDistance(root, 1);
+        int dist = maxDistance(root, 1);
         System.out.println(dist);
-        dist = bt.maxDistance(root, 2);
+        dist = maxDistance(root, 2);
         System.out.println(dist);
-        dist = bt.maxDistance(root, 3);
+        dist = maxDistance(root, 3);
         System.out.println(dist);
-        dist = bt.maxDistance(root, 4);
+        dist = maxDistance(root, 4);
         System.out.println(dist);
-        dist = bt.maxDistance(root, 5);
+        dist = maxDistance(root, 5);
         System.out.println(dist);
-        dist = bt.maxDistance(root, 6);
+        dist = maxDistance(root, 6);
         System.out.println(dist);
-        dist = bt.maxDistance(root, 7);
+        dist = maxDistance(root, 7);
         System.out.println(dist);
-        dist = bt.maxDistance(root, 8);
+        dist = maxDistance(root, 8);
         System.out.println(dist);
 
         
     }
 
 
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
-
-
-    public int maxDistance(TreeNode root, int start) {
+    public static int maxDistance(TreeNode root, int start) {
 
         if (root.val == start) {
             return heightOfTree(root);
@@ -90,7 +72,7 @@ public class MaxLeafDistance {
         return res[0];
     }
 
-    private int heightOfTree(TreeNode root) {
+    private static int heightOfTree(TreeNode root) {
         if (root == null) {
             return 0;
         }
@@ -134,7 +116,7 @@ public class MaxLeafDistance {
 
 
     // returns int[]{height, distFromStart}
-    private int[] dfs(TreeNode node, int start, int[] maxDist) {
+    private static int[] dfs(TreeNode node, int start, int[] maxDist) {
         if (node == null) return new int[]{0, -1};
 
         int[] left = dfs(node.left, start, maxDist);

@@ -1,4 +1,4 @@
-package commons;
+
 import java.util.Arrays;
 
 public class MergeSort {
