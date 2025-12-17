@@ -6,23 +6,22 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
+import commons.TreeNode;;
 
 public class BurningTree {
 
 
     public static void main(String[] args) {
         
-        BurningTree bt = new BurningTree();
-
-        TreeNode n3 = bt.new TreeNode(3);
-        TreeNode n5 = bt.new TreeNode(5);
-        TreeNode n1 = bt.new TreeNode(1);
-        TreeNode n6 = bt.new TreeNode(6);
-        TreeNode n2 = bt.new TreeNode(2);
-        TreeNode n7 = bt.new TreeNode(7);
-        TreeNode n4 = bt.new TreeNode(4);
-        TreeNode n0 = bt.new TreeNode(0);
-        TreeNode n8 = bt.new TreeNode(8);
+        TreeNode n3 = new TreeNode(3);
+        TreeNode n5 = new TreeNode(5);
+        TreeNode n1 = new TreeNode(1);
+        TreeNode n6 = new TreeNode(6);
+        TreeNode n2 = new TreeNode(2);
+        TreeNode n7 = new TreeNode(7);
+        TreeNode n4 = new TreeNode(4);
+        TreeNode n0 = new TreeNode(0);
+        TreeNode n8 = new TreeNode(8);
 
         n3.left = n5;
         n3.right = n1;
@@ -44,48 +43,28 @@ public class BurningTree {
         System.out.println("root.left.right.left: " + root.left.right.left.val);
         System.out.println("root.left.right.right: " + root.left.right.right.val);
 
-        int dist = bt.amountOfTime(root, 1);
+        int dist = amountOfTime(root, 1);
         System.out.println(dist);
-        dist = bt.amountOfTime(root, 2);
+        dist = amountOfTime(root, 2);
         System.out.println(dist);
-        dist = bt.amountOfTime(root, 3);
+        dist = amountOfTime(root, 3);
         System.out.println(dist);
-        dist = bt.amountOfTime(root, 4);
+        dist = amountOfTime(root, 4);
         System.out.println(dist);
-        dist = bt.amountOfTime(root, 5);
+        dist = amountOfTime(root, 5);
         System.out.println(dist);
-        dist = bt.amountOfTime(root, 6);
+        dist = amountOfTime(root, 6);
         System.out.println(dist);
-        dist = bt.amountOfTime(root, 7);
+        dist = amountOfTime(root, 7);
         System.out.println(dist);
-        dist = bt.amountOfTime(root, 8);
+        dist = amountOfTime(root, 8);
         System.out.println(dist);
     }
 
 
 
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
 
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
-
-
-
-    public int amountOfTime(TreeNode root, int start) {
+    public static int amountOfTime(TreeNode root, int start) {
 
         int[] ans = new int[1];
 
@@ -114,7 +93,7 @@ public class BurningTree {
         return ans[0];
     }
 
-    private int amountOfTimeFromStart(TreeNode root, int start, int[] ans, Map<TreeNode, TreeNode> mp) {
+    private static int amountOfTimeFromStart(TreeNode root, int start, int[] ans, Map<TreeNode, TreeNode> mp) {
 
         TreeNode leaf = findNode(root, start);
 
@@ -150,7 +129,7 @@ public class BurningTree {
         return ans[0];
     }
 
-    public TreeNode findNode(TreeNode root, int target) {
+    public static TreeNode findNode(TreeNode root, int target) {
         if (root == null)
             return null;
         if (root.val == target)
