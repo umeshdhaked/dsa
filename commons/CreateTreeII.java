@@ -63,9 +63,8 @@ public class CreateTreeII {
         if (root == null) {
             return;
         }
-        
-        inorder(root.left);
         System.out.println(root.val);
+        inorder(root.left);
         inorder(root.right);
     }
 
