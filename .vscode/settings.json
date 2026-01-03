@@ -1,0 +1,14 @@
+{
+    "github.copilot.chat.customOAIModels": {
+        "openai/gpt-oss-20b": {
+            "name": "openai/gpt-oss-20b",
+            "maxInputTokens": 131072,
+            "maxOutputTokens": 131072,
+            "toolCalling": true,
+            "vision": false,
+            "url": "http://192.168.0.101:1234",
+            "thinking": true,
+            "requiresAPIKey": false
+        }
+    }
+}
