@@ -1,5 +1,7 @@
+package commons.f_binary_search;
 
 import java.util.Arrays;
+
 
 public class PaintTheWall {
 

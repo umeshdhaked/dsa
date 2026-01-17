@@ -1,4 +1,6 @@
+package commons.p_dynamic_prgm;
 import java.util.Arrays;
+
 
 public class DistinctSubSequences {
     int distinctSubseq(String s) {

@@ -1,5 +1,7 @@
 
 // Math + Binarysearch
+package commons.f_binary_search;
+
 public class SplitLargestArraySum {
 
     public int splitArray(int[] nums, int k) {

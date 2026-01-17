@@ -1,4 +1,6 @@
 
+package commons.e_2pointers_slidingw;
+
 class SlidingWindow {
 
        public int longestOnes(int[] nums, int k) { // not optimal

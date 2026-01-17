@@ -1,4 +1,6 @@
+package commons.p_dynamic_prgm;
 import java.util.Arrays;
+
 
 public class HouseRobber {
     public int rob(int[] nums) {

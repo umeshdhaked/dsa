@@ -1,3 +1,5 @@
+package commons.p_dynamic_prgm;
+
 public class LongestCommonSubstring {
     public int longestCommonSubstr(String s1, String s2) {
         int m = s1.length();

@@ -1,4 +1,6 @@
 
+package commons.s_matrics_dp;
+
 public class MaximumSquareInMetrics {
 
     public int maximalSquare(char[][] matrix) {

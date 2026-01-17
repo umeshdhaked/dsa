@@ -1,3 +1,5 @@
+package commons.i_maps_prefixsum;
+
 import java.util.HashMap;
 import java.util.Map;
 

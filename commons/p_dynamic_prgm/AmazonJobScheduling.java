@@ -1,4 +1,6 @@
+package commons.p_dynamic_prgm;
 import java.util.*;
+
 
 public class AmazonJobScheduling {
     public int jobScheduling(int[] startTime, int[] endTime, int[] profit) {

@@ -1,4 +1,6 @@
 
+package commons.p_dynamic_prgm;
+
 public class DistinctSubSequencesII {
 
     public int numDistinct(String s, String t) {    
