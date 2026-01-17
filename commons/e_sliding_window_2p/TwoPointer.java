@@ -1,4 +1,4 @@
-package commons.e_2pointers_slidingw;
+package commons.e_sliding_window_2p;
 
 import java.util.ArrayList;
 import java.util.List;

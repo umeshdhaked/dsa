@@ -1,5 +1,5 @@
 
-package commons.e_2pointers_slidingw;
+package commons.e_sliding_window_2p;
 
 class SlidingWindow {
 
