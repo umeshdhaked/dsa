@@ -63,4 +63,37 @@ public class KPairSmallestSum {
         return ans;
     }
 
+
+    // public List<List<Integer>> kSmallestPairs(int[] nums1, int[] nums2, int k) {
+    //     int n = nums1.length;
+    //     int m = nums2.length;
+
+    //     List<List<Integer>> ans = new ArrayList<>();
+
+    //     Queue<int[]> priorityQueue = new PriorityQueue<>((int[] a, int[] b) -> (a[0] - b[0]));
+
+    //     for (int i =0;i< Math.min(n, k);i++) {
+    //         priorityQueue.add(new int[]{nums1[i]+nums2[0],i,0});
+    //     }
+
+    //     while (!priorityQueue.isEmpty() && k > 0) {
+            
+    //         int[] val = priorityQueue.poll();
+    //         int p = val[1];
+    //         int q = val[2];
+
+    //         if(q+1 < m) {
+    //             priorityQueue.add(new int[]{nums1[p]+ nums2[q+1], p, q+1});
+    //         }
+
+    //         ans.add(List.of(nums1[p],nums2[q]));
+
+    //         k--;
+    //     }
+
+    //     return ans;
+
+    // }
+
+
 }

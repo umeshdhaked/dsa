@@ -14,7 +14,6 @@ public class MaximumSquareInMetrics {
         for (int j=1;j<row;j++) {
            mat[j][0] = Math.min((int)matrix[j-1][0],(int)matrix[j][0]);
         }
-
         
         for (int j=1;j<matrix.length;j++) {
             for (int i=1;i<matrix[0].length;i++) {
