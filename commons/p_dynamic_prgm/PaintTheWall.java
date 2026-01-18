@@ -1,4 +1,4 @@
-package commons.f_binary_search;
+package commons.p_dynamic_prgm;
 
 import java.util.Arrays;
 
