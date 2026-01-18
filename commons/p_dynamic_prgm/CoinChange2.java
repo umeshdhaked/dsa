@@ -90,7 +90,7 @@ public class CoinChange2 {
     
 
     
-    private long minimumCoinMemo(int[] coins, int amount, int i, long[][] memo) {
+    public long minimumCoinMemo(int[] coins, int amount, int i, long[][] memo) {
        if (amount == 0) {
             return 0;
         }

@@ -1,5 +1,5 @@
 
-package commons.s_matrics_dp;
+package commons.s_matrics;
 
 public class MaximumSquareInMetrics {
 

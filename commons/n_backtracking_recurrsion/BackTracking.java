@@ -9,7 +9,7 @@ import java.util.Queue;
 public class BackTracking {
 
 
-    private List<List<Integer>> subsets(int[] nums) {
+    public List<List<Integer>> subsets(int[] nums) {
 
         List<List<Integer>> ans = new ArrayList<>();
 

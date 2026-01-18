@@ -1,6 +1,3 @@
-
-import java.util.Arrays;
-
 public class MergeSort {
 
     public void execute() {
