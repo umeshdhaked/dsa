@@ -6,7 +6,7 @@
             "maxOutputTokens": 131072,
             "toolCalling": true,
             "vision": false,
-            "url": "http://192.168.0.101:1234",
+            "url": "http://192.168.0.102:1234",
             "thinking": true,
             "requiresAPIKey": false
         }
