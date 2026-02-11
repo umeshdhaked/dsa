@@ -38,7 +38,6 @@
 Chrome:
 https://www.youtube.com/watch?v=tyB0ztf0DNY&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=3
 https://www.youtube.com/watch?v=xxRE-46OCC8
-https://www.youtube.com/watch?v=CZQGRp93K4k
 
 FireFox:
 https://takeuforward.org/data-structure/task-scheduler
