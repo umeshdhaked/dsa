@@ -1,3 +1,5 @@
+package commons.rr_graphs;
+
 import java.util.Arrays;
 
 public class BellmanFordAlgoKStops {
