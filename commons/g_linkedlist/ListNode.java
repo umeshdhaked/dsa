@@ -2,10 +2,10 @@ package commons.g_linkedlist;
 import java.util.PriorityQueue;
 
 public class ListNode {
-    int val;
-    ListNode next;
+    public int val;
+    public ListNode next;
 
-    ListNode() {
+    public ListNode() {
     }
 
     ListNode(int val) {
